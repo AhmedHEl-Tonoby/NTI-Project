@@ -1,0 +1,24 @@
+- name: pretask to update cache
+  hosts: localhost
+  pre_tasks:
+
+    - name:  Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+
+- name: working on roles provided
+  hosts: all
+  roles:
+
+
+    - role: jenkins
+
+
+    - role: docker
+    
+
+    - role: kubectl
+
+
+
+
