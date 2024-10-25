@@ -1,1 +1,69 @@
-NTI project
+# NTI DevOps Final Project
+
+This repository contains the code and configurations for the NTI DevOps final project. The project utilizes multiple DevOps tools to create and manage an Infrastructure as Code (IaC) environment on AWS. Below is an overview of the tools used and the deployment structure.
+
+## Project Overview
+
+- **Infrastructure**: AWS (EKS, RDS, EC2, S3)
+- **Tools**: Terraform, Ansible, Docker, Kubernetes, Jenkins
+
+## Project Components
+
+### 1. Terraform
+- Provision an EKS Cluster with 2 nodes, an auto-scaling group, and ELB.
+- Create an RDS instance.
+- Set up an EC2 instance for Jenkins.
+- Configure daily snapshots for Jenkins EC2 using AWS Backup.
+- Store ELB access logs in an S3 bucket.
+  
+### 2. Ansible
+- Install Jenkins with required plugins and configurations.
+- Deploy the CloudWatch agent on all EC2 instances for monitoring.
+
+### 3. Docker
+- Create Docker images for the application code.
+- Configure Docker Compose to run the app locally for testing.
+
+### 4. Kubernetes
+- Deploy Kubernetes manifests to the EKS cluster.
+- Set up network policies to enforce pod-level security.
+
+### 5. Jenkins
+- Create a multi-branch pipeline that builds on every push to the dev, test, and prod branches.
+  - **Stages**:
+    - Build the Docker image from the Dockerfile.
+    - Push the image to Docker Hub.
+    - Deploy the updated image to Kubernetes.
+
+## Prerequisites
+
+- AWS Account with access to IAM, EKS, RDS, S3, and CloudWatch.
+- Terraform installed locally.
+- Ansible installed for configuration management.
+- Docker and Docker Compose installed.
+- Kubernetes CLI (`kubectl`) installed and configured.
+- Jenkins server set up and accessible.
+
+## Setup Instructions
+
+1. **Terraform**:
+   - Initialize the Terraform project.
+   - Apply the configurations to provision the infrastructure on AWS.
+
+2. **Ansible**:
+   - Run Ansible playbooks to install and configure Jenkins, as well as CloudWatch agents on EC2 instances.
+
+3. **Docker**:
+   - Build Docker images using the provided Dockerfile.
+   - Use Docker Compose to verify the app locally.
+
+4. **Kubernetes**:
+   - Apply Kubernetes manifests to deploy the application on EKS.
+   - Ensure network policies are in place for pod security.
+
+5. **Jenkins**:
+   - Set up a multi-branch pipeline in Jenkins.
+   - Ensure the pipeline builds, pushes Docker images to Docker Hub, and deploys the application on each push.
+
+## Repository Structure
+
