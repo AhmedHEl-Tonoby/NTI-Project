@@ -67,3 +67,8 @@ This repository contains the code and configurations for the NTI DevOps final pr
 
 ## Repository Structure
 
+- **terraform/**: Contains all Terraform configurations for provisioning AWS resources.
+- **ansible/**: Contains Ansible playbooks for setting up Jenkins and CloudWatch agent.
+- **docker/**: Contains the Dockerfile for building the application image and Docker Compose configurations.
+- **kubernetes/**: Contains Kubernetes manifest files for deploying the application on EKS.
+- **jenkins/**: Contains Jenkins pipeline configurations.
